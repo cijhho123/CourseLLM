@@ -251,7 +251,9 @@
 **Acceptance Criteria:**
 
 -   Drag-and-drop file upload interface
--   Support for PDF, PPTX, DOCX, MD formats
+-   Support for documents PDF, PPTX, DOCX, MD formats
+-   Support for Audio and Video formats
+-   Support for referencing external online resources 
 -   Bulk upload of multiple files
 -   Upload progress indicator
 
