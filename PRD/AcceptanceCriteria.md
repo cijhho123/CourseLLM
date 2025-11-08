@@ -36,30 +36,19 @@ This document defines the measurable criteria, key performance indicators (KPIs)
 | F-T-03     | Learning Trajectory Definition | ✓ Visual graph editor for concepts<br>✓ Define prerequisite relationships (drag connections)<br>✓ Set difficulty levels (beginner/intermediate/advanced/expert)<br>✓ Validates no circular dependencies<br>✓ Exports/imports trajectory definitions                 | Required |
 | F-T-04     | Assignment Validation          | ✓ Tests assignment against LLM chatbots<br>✓ Reports AI-solvability with confidence score<br>✓ Identifies specific problems that are AI-solvable<br>✓ Suggests modifications to increase resistance<br>✓ Generates AI resistance score (0.0-1.0)                | Required |
 
-### 1.3 Optional Features (Nice to Have)
-
-| Feature ID | Feature Name           | Acceptance Criteria                           | Priority |
-| ---------- | ---------------------- | --------------------------------------------- | -------- |
-| F-O-01     | Assignment Generation  | Auto-generate quiz questions from materials   | Medium   |
-| F-O-02     | Multi-language Support | Support Hebrew interface alongside English    | Low      |
-| F-O-03     | Mobile App             | Native iOS/Android apps                       | Low      |
-| F-O-04     | Grading Assistance     | Automated grading suggestions for assignments | Low      |
-
-**Release Decision:** All "Must Have" features required. Optional features may be deferred to future releases without blocking initial deployment.
 
 ## 2. Performance Requirements
 
 ### 2.1 Response Time Criteria
 
-| Metric                         | Target                    | Maximum Acceptable | Measurement Method              |
-| ------------------------------ | ------------------------- | ------------------ | ------------------------------- |
-| Chatbot response latency (P95) | < 3 seconds               | < 5 seconds        | Monitor API response times      |
-| RAG retrieval time (P95)       | < 1 second                | < 2 seconds        | Database query logs             |
-| Dashboard load time (P95)      | < 3 seconds               | < 5 seconds        | Frontend performance monitoring |
-| Material indexing speed        | < 10 minutes per document | < 20 minutes       | Background job monitoring       |
-| Page load time (P95)           | < 2 seconds               | < 4 seconds        | Browser performance API         |
+| Metric                         | Target                | Maximum Acceptable        | Measurement Method              |
+| ------------------------------ | --------------------- | -------------------------- | ------------------------------- |
+| Chatbot response latency (P95) | Fast response time    | Slight delay acceptable    | Monitor API response times      |
+| RAG retrieval time (P95)       | Quick retrieval       | Moderate delay acceptable  | Database query logs             |
+| Dashboard load time (P95)      | Fast loading          | Moderate delay acceptable  | Frontend performance monitoring |
+| Material indexing speed        | Efficient processing  | Longer duration tolerated  | Background job monitoring       |
+| Page load time (P95)           | Quick rendering       | Noticeable delay acceptable| Browser performance API         |
 
-**Acceptance Threshold:** All metrics must meet "Target" values under normal load (80% of expected peak) and stay within "Maximum Acceptable" under peak load (150% expected).
 
 ### 2.2 Scalability Criteria
 
@@ -69,18 +58,16 @@ This document defines the measurable criteria, key performance indicators (KPIs)
 | Conversations per second       | 20 new conversations/sec   | Stress testing             |
 | Messages per second            | 100 messages/sec           | Stress testing             |
 | Database query throughput      | 500 queries/sec            | Database benchmarking      |
-| Vector search latency at scale | < 200ms for 50K embeddings | Vector DB performance test |
 
-**Acceptance Threshold:** System must handle minimum required load with <5% error rate and meet performance targets.
 
 ### 2.3 Availability Criteria
 
-| Metric                         | Target             | Measurement Period |
-| ------------------------------ | ------------------ | ------------------ |
-| System uptime                  | 99.0%              | Monthly            |
-| Planned maintenance window     | < 4 hours/month    | Monthly            |
-| Recovery time objective (RTO)  | < 4 hours          | Per incident       |
-| Recovery point objective (RPO) | < 1 hour data loss | Per incident       |
+| Metric                         | Target                  | Measurement Period |
+| ------------------------------ | ----------------------- | ------------------ |
+| System uptime                  | High availability       | Monthly            |
+| Planned maintenance window     | Minimal downtime        | Monthly            |
+| Recovery time objective (RTO)  | Rapid recovery          | Per incident       |
+| Recovery point objective (RPO) | Minimal data loss       | Per incident       |
 
 **Acceptance Threshold:** Monitoring and alerting systems must be operational before release to track these metrics.
 
@@ -135,12 +122,12 @@ Release is **blocked** if any of these conditions exist:
 
 ### 4.2 Data Protection
 
-| Requirement           | Acceptance Criteria                                                                                                                          | Verification Method                           |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| Encryption at Rest    | ✓ All conversation data encrypted (AES-256)<br>✓ All grades and personal info encrypted<br>✓ Database backups encrypted                      | Infrastructure audit, penetration testing     |
-| Encryption in Transit | ✓ All connections use TLS 1.3<br>✓ Certificate validation enforced<br>✓ No fallback to insecure protocols                                    | Security scanning, SSL Labs testing           |
-| Data Anonymization    | ✓ Teacher dashboard shows only aggregated data<br>✓ Minimum 5 students for any statistic<br>✓ No reverse-engineering to identify individuals | Privacy audit, statistical disclosure testing |
-| Data Retention        | ✓ Conversation data deleted 2 years after graduation<br>✓ Automated deletion process implemented<br>✓ Manual deletion available on request   | Process documentation, automated testing      |
+| Requirement           | Acceptance Criteria                                                                                                   | Verification Method                           |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| Encryption at Rest    | ✓ All stored data is securely encrypted<br>✓ Sensitive information is protected<br>✓ Backups are encrypted            | Infrastructure audit, security assessment     |
+| Encryption in Transit | ✓ All communications use secure protocols<br>✓ Certificate validation is enforced<br>✓ No insecure fallbacks allowed | Security scanning, network testing            |
+| Data Anonymization    | ✓ Only aggregated data is displayed<br>✓ Minimum thresholds applied for statistics<br>✓ No personal data exposure     | Privacy audit, compliance testing             |
+| Data Retention        | ✓ Data retention period clearly defined<br>✓ Automated deletion processes in place<br>✓ Manual deletion supported     | Policy review, process validation             |
 
 ### 4.3 Compliance Requirements
 
