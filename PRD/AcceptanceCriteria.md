@@ -34,7 +34,7 @@ This document defines the measurable criteria, key performance indicators (KPIs)
 | F-T-01     | Content Upload & Indexing      | ✓ Drag-and-drop file upload (PDF, PPTX, DOCX, MD)<br>✓ Indexing completes within 10 minutes per file<br>✓ Validates terminology consistency<br>✓ Displays indexing status and errors<br>✓ Allows file deletion and re-upload                                        | Required |
 | F-T-02     | Class-Wide Dashboard           | ✓ Shows concept mastery distribution (heatmap)<br>✓ Identifies struggling concepts (>30% confusion rate)<br>✓ Displays engagement metrics (questions/week, time spent)<br>✓ All data aggregated (no individual lookup)<br>✓ Updates in real-time (< 5 minute delay) | Required |
 | F-T-03     | Learning Trajectory Definition | ✓ Visual graph editor for concepts<br>✓ Define prerequisite relationships (drag connections)<br>✓ Set difficulty levels (beginner/intermediate/advanced/expert)<br>✓ Validates no circular dependencies<br>✓ Exports/imports trajectory definitions                 | Required |
-| F-T-04     | Assignment Validation          | ✓ Tests assignment against GPT-4 and Claude<br>✓ Reports AI-solvability with confidence score<br>✓ Identifies specific problems that are AI-solvable<br>✓ Suggests modifications to increase resistance<br>✓ Generates AI resistance score (0.0-1.0)                | Required |
+| F-T-04     | Assignment Validation          | ✓ Tests assignment against LLM chatbots<br>✓ Reports AI-solvability with confidence score<br>✓ Identifies specific problems that are AI-solvable<br>✓ Suggests modifications to increase resistance<br>✓ Generates AI resistance score (0.0-1.0)                | Required |
 
 ### 1.3 Optional Features (Nice to Have)
 
